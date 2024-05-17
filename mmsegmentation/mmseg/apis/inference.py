@@ -6,6 +6,7 @@ from mmcv.parallel import collate, scatter
 from mmcv.runner import load_checkpoint
 from mmseg.datasets.pipelines import Compose
 from mmseg.models import build_segmentor
+import time
 
 
 def init_segmentor(config, checkpoint=None, device='cuda:0'):
@@ -35,8 +36,8 @@ def init_segmentor(config, checkpoint=None, device='cuda:0'):
         model.CLASSES = checkpoint['meta']['CLASSES']
         model.PALETTE = checkpoint['meta']['PALETTE']
     model.cfg = config  # save the config in the model for convenience
-    model.to(device)
-    model.eval()
+    #model.to(device)
+    #model.eval()
     return model
 
 
