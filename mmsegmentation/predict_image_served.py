@@ -10,7 +10,9 @@ from skimage.io import imsave
 import pdb, time
 import torch
 import copy
-import cv2
+import cv2, sys
+
+np.set_printoptions(threshold=sys.maxsize)
 
 os.makedirs("/home/yara/camera_ws/src/EgoHOS/testimages/pred_twohands/", exist_ok = True)
 os.makedirs("/home/yara/camera_ws/src/EgoHOS/testimages/pred_cb/", exist_ok = True)
