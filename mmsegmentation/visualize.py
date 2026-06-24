@@ -69,12 +69,12 @@ if __name__ == '__main__':
         if args.mode == 'twohands':
             twohands = np.array(Image.open(os.path.join(args.twohands_dir, fname + '.png')))
             twohands_vis = visualize_twohands(img, twohands)
-            imsave(os.path.join(args.vis_dir, fname + '.jpg'), twohands_vis)
+            imsave(os.path.join(args.vis_dir, fname + '.jpg'), twohands_vis.astype(np.uint8))
 
         elif args.mode == 'cb':
             cb = np.array(Image.open(os.path.join(args.cb_dir, fname + '.png')))
             cb_vis = visualize_cb(img, cb)
-            imsave(os.path.join(args.vis_dir, fname + '.jpg'), cb_vis)       
+            imsave(os.path.join(args.vis_dir, fname + '.jpg'), cb_vis.astype(np.uint8))
 
         elif args.mode == 'twohands_obj1':
             twohands = np.array(Image.open(os.path.join(args.twohands_dir, fname + '.png')))
@@ -84,7 +84,7 @@ if __name__ == '__main__':
             twohands_obj1[obj1 == 2] = 4
             twohands_obj1[obj1 == 3] = 5
             twohands_obj1_vis = visualize_twohands_obj1(img, twohands_obj1)
-            imsave(os.path.join(args.vis_dir, fname + '.jpg'), twohands_obj1_vis)
+            imsave(os.path.join(args.vis_dir, fname + '.jpg'), twohands_obj1_vis.astype(np.uint8))
 
         elif args.mode == 'twohands_obj2':
             twohands = np.array(Image.open(os.path.join(args.twohands_dir, fname + '.png')))
@@ -97,7 +97,7 @@ if __name__ == '__main__':
             twohands_obj2[obj2 == 5] = 7
             twohands_obj2[obj2 == 6] = 8
             twohands_obj2_vis = visualize_twohands_obj2(img, twohands_obj2)
-            imsave(os.path.join(args.vis_dir, fname + '.jpg'), twohands_obj2_vis)
+            imsave(os.path.join(args.vis_dir, fname + '.jpg'), twohands_obj2_vis.astype(np.uint8))
 
         else:
             raise NotImplementedError
